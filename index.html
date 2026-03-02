@@ -1,228 +1,241 @@
 <!DOCTYPE html>
-
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Intel Brief: Duy Nguyen // Protocol 042</title>
-<link rel="preconnect" href="">
-<link href="" rel="stylesheet">
-<style>
-:root {
---bg: #0d0d0d;
---surface: #1a1a1a;
---text: #e0e0e0;
---muted: #666666;
---accent: #ff3b30;
---data-green: #30d158;
---border: #262626;
---serif: 'Fraunces', Georgia, serif;
---mono: 'JetBrains Mono', monospace;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-background: var(--bg);
-color: var(--text);
-font-family: var(--mono);
-font-weight: 300;
-line-height: 1.6;
-overflow-x: hidden;
-}
-.intel-band {
-background: var(--accent);
-color: #000;
-padding: 0.5rem 1.5rem;
-font-size: 0.7rem;
-font-weight: 700;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-position: sticky;
-top: 0;
-z-index: 100;
-display: flex;
-justify-content: space-between;
-}
-header {
-min-height: 80vh;
-padding: 6rem 1.5rem;
-display: flex;
-flex-direction: column;
-justify-content: center;
-border-bottom: 1px solid var(--border);
-}
-.status-code {
-color: var(--accent);
-font-size: 0.8rem;
-margin-bottom: 1rem;
-}
-h1 {
-font-family: var(--serif);
-font-size: clamp(3.5rem, 10vw, 8rem);
-line-height: 0.85;
-font-weight: 700;
-letter-spacing: -0.04em;
-margin-bottom: 2rem;
-}
-.header-vn {
-font-style: italic;
-color: var(--muted);
-font-size: clamp(1.2rem, 3vw, 2rem);
-margin-bottom: 3rem;
-}
-.brief-summary {
-max-width: 600px;
-border-left: 2px solid var(--accent);
-padding-left: 1.5rem;
-color: var(--text);
-}
-section {
-padding: 5rem 1.5rem;
-border-bottom: 1px solid var(--border);
-max-width: 1000px;
-}
-.label {
-font-size: 0.7rem;
-color: var(--accent);
-text-transform: uppercase;
-letter-spacing: 0.3em;
-margin-bottom: 1rem;
-display: block;
-}
-h2 {
-font-family: var(--serif);
-font-size: clamp(2rem, 5vw, 3.5rem);
-line-height: 1.1;
-margin-bottom: 2rem;
-}
-.vn-subhead {
-color: var(--data-green);
-font-family: var(--mono);
-font-size: 0.9rem;
-margin-bottom: 1.5rem;
-}
-p {
-color: #b0b0b0;
-max-width: 650px;
-margin-bottom: 1.5rem;
-}
-.grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 1px;
-background: var(--border);
-margin: 3rem 0;
-}
-.grid-item {
-background: var(--bg);
-padding: 2rem;
-}
-.grid-num {
-color: var(--accent);
-margin-bottom: 1rem;
-display: block;
-}
-.procedure-box {
-background: var(--surface);
-padding: 2.5rem;
-border: 1px solid var(--border);
-}
-.cta {
-display: inline-block;
-background: var(--text);
-color: var(--bg);
-padding: 1rem 2rem;
-text-decoration: none;
-font-weight: 700;
-margin-top: 2rem;
-transition: background 0.2s;
-}
-.cta:hover { background: var(--accent); color: #fff; }
-.reveal { opacity: 0; transform: translateY(20px); transition: 0.6s all ease-out; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-@media (max-width: 600px) {
-h1 { font-size: 4rem; }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intel Brief: Duy Nguyen // Protocol 042</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #0d0d0d;
+            --surface: #1a1a1a;
+            --text: #e0e0e0;
+            --muted: #666666;
+            --accent: #ff3b30;
+            --data-green: #30d158;
+            --border: #262626;
+            --serif: 'Fraunces', Georgia, serif;
+            --mono: 'JetBrains Mono', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--mono);
+            font-weight: 300;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .intel-band {
+            background: var(--accent);
+            color: #000;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+        }
+        header {
+            min-height: 80vh;
+            padding: 6rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom: 1px solid var(--border);
+        }
+        .status-code {
+            color: var(--accent);
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-family: var(--serif);
+            font-size: clamp(3.5rem, 10vw, 8rem);
+            line-height: 0.85;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            margin-bottom: 2rem;
+        }
+        .header-vn {
+            font-style: italic;
+            color: var(--muted);
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            margin-bottom: 3rem;
+        }
+        .brief-summary {
+            max-width: 600px;
+            border-left: 2px solid var(--accent);
+            padding-left: 1.5rem;
+            color: var(--text);
+        }
+        section {
+            padding: 5rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            max-width: 1000px;
+            margin: 0 auto; /* Centers the content blocks */
+        }
+        .label {
+            font-size: 0.7rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        h2 {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+        .vn-subhead {
+            color: var(--data-green);
+            font-family: var(--mono);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        p {
+            color: #b0b0b0;
+            max-width: 650px;
+            margin-bottom: 1.5rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1px;
+            background: var(--border);
+            margin: 3rem 0;
+        }
+        .grid-item {
+            background: var(--bg);
+            padding: 2rem;
+        }
+        .grid-num {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .procedure-box {
+            background: var(--surface);
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+        }
+        .cta {
+            display: inline-block;
+            background: var(--text);
+            color: var(--bg);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 2rem;
+            transition: all 0.2s;
+        }
+        .cta:hover { 
+            background: var(--accent); 
+            color: #fff; 
+            transform: scale(1.02);
+        }
+        .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s all ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        
+        footer {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem; 
+            color: var(--muted); 
+            font-size: 0.7rem; 
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 4rem; }
+        }
+    </style>
 </head>
 <body>
-<div class="intel-band">
-<div>CONFIDENTIAL // PRE-MEETING PROTOCOL</div>
-<div>MARCH 2026</div>
-</div>
-<header>
-<div class="status-code">SOURCE ID: CSO_COCA_FOUNDERS</div>
-<h1>Duy
+    <div class="intel-band">
+        <div>CONFIDENTIAL // PRE-MEETING PROTOCOL</div>
+        <div>MARCH 2026</div>
+    </div>
 
+    <header>
+        <div class="status-code">SOURCE ID: CSO_COCA_FOUNDERS</div>
+        <h1>Duy<br>Nguyen.</h1>
+        <div class="header-vn">"Ít nhất, hãy nói sự thật."</div>
+        <div class="brief-summary">
+            <p>This is not a pitch. This is a <strong>Strategic Procedure</strong> to eliminate informational friction. You have stopped believing in People and Emotion. I have stopped believing in Slide Decks and Brochures.</p>
+        </div>
+    </header>
 
-Nguyen.</h1>
-<div class="header-vn">"Ít nhất, hãy nói sự thật."</div>
-<div class="brief-summary">
-<p>This is not a pitch. This is a <strong>Strategic Procedure</strong> to eliminate informational friction. You have stopped believing in People and Emotion. I have stopped believing in Slide Decks and Brochures.</p>
-</div>
-</header>
-<section class="reveal">
-<span class="label">The Variable</span>
-<div class="vn-subhead">Câu hỏi tỷ đô (The Billion-Dollar Question)</div>
-<h2>Discrete Data vs.
+    <section class="reveal">
+        <span class="label">The Variable</span>
+        <div class="vn-subhead">Câu hỏi tỷ đô (The Billion-Dollar Question)</div>
+        <h2>Discrete Data vs.<br>Multi-Tier Networks.</h2>
+        <p>You are searching for a way to decrypt internal information within supplier networks. You noted that Americans won at Midway by synthesizing discrete pieces of intelligence.</p>
+        <p><strong>The Problem:</strong> Most professional communication is high-noise/low-data. It relies on behavior, which is a variable you no longer trust.</p>
+        <p><strong>The Fix:</strong> Scrollsites turn communication into a <strong>discrete data asset.</strong> One page. One person. One focused information frame. No noise.</p>
+    </section>
 
+    <section class="reveal">
+        <span class="label">The LinkedIn Flywheel</span>
+        <div class="vn-subhead">Quy trình thay vì Cảm xúc (Procedure over Emotion)</div>
+        <h2>From Ego-Profiles to<br>Protocol-Briefs.</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <span class="grid-num">01.</span>
+                <p>LinkedIn currently hosts 1B+ "Stories." Most are proofs of "high skills" that you've learned to ignore.</p>
+            </div>
+            <div class="grid-item">
+                <span class="grid-num">02.</span>
+                <p>A LinkedIn "Protocol" (Scrollsite) allows a CSO to generate a pre-meeting intel brief with one click.</p>
+            </div>
+            <div class="grid-item">
+                <span class="grid-num">03.</span>
+                <p>Premium users move from <strong>finding</strong> people to <strong>orienting</strong> them. The system defines the truth, not the person.</p>
+            </div>
+        </div>
+    </section>
 
-Multi-Tier Networks.</h2>
-<p>You are searching for a way to decrypt internal information within supplier networks. You noted that Americans won at Midway by synthesizing discrete pieces of intelligence.</p>
-<p><strong>The Problem:</strong> Most professional communication is high-noise/low-data. It relies on behavior, which is a variable you no longer trust.</p>
-<p><strong>The Fix:</strong> Scrollsites turn communication into a <strong>discrete data asset.</strong> One page. One person. One focused information frame. No noise.</p>
-</section>
-<section class="reveal">
-<span class="label">The LinkedIn Flywheel</span>
-<div class="vn-subhead">Quy trình thay vì Cảm xúc (Procedure over Emotion)</div>
-<h2>From Ego-Profiles to
+    <section class="reveal">
+        <span class="label">Counter-Argument</span>
+        <div class="vn-subhead">Phản Biện Lãnh Đạo (Leader Critique)</div>
+        <h2>Smart people don't live long.<br><em>Systems do.</em></h2>
+        <p>You referenced Sima Yi: "People this smart... don't live long." Why? Because they bruise the ego of the hierarchy. They try to outshine the leader in a specialty.</p>
+        <p>A Scrollsite acts as the "Neutral Associate." It provides the <strong>Phản Biện</strong> (Critique) and the data without the personal threat. It allows the leader to "know the mistake, fix the mistake, but not admit the mistake" in a private, high-fidelity environment.</p>
+    </section>
 
+    <section class="reveal">
+        <div class="procedure-box">
+            <span class="label">Final Protocol</span>
+            <h2>Request for Review.</h2>
+            <p>I am not requesting a conversation to "connect." I am requesting a 15-minute <strong>Protocol Review</strong> of how this system integrates into the LinkedIn/M365 architecture.</p>
+            <p><strong>Expected Benefit:</strong> Reduction of C-Suite discovery noise by 40%.</p>
+            <a href="https://www.linkedin.com/in/markwinterburn/" target="_blank" rel="noopener noreferrer" class="cta">EXECUTE REVIEW</a>
+        </div>
+    </section>
 
-Protocol-Briefs.</h2>
-<div class="grid">
-<div class="grid-item">
-<span class="grid-num">01.</span>
-<p>LinkedIn currently hosts 1B+ "Stories." Most are proofs of "high skills" that you've learned to ignore.</p>
-</div>
-<div class="grid-item">
-<span class="grid-num">02.</span>
-<p>A LinkedIn "Protocol" (Scrollsite) allows a CSO to generate a pre-meeting intel brief with one click.</p>
-</div>
-<div class="grid-item">
-<span class="grid-num">03.</span>
-<p>Premium users move from <strong>finding</strong> people to <strong>orienting</strong> them. The system defines the truth, not the person.</p>
-</div>
-</div>
-</section>
-<section class="reveal">
-<span class="label">Counter-Argument</span>
-<div class="vn-subhead">Phản Biện Lãnh Đạo (Leader Critique)</div>
-<h2>Smart people don't live long.
+    <footer>
+        <div>OBJECTIVE: DISCRETE DATA INTEGRITY</div>
+        <div>LOC: ISLE OF PORTLAND // UK</div>
+    </footer>
 
-
-<em>Systems do.</em></h2>
-<p>You referenced Sima Yi: "People this smart... don't live long." Why? Because they bruise the ego of the hierarchy. They try to outshine the leader in a specialty.</p>
-<p>A Scrollsite acts as the "Neutral Associate." It provides the <strong>Phản Biện</strong> (Critique) and the data without the personal threat. It allows the leader to "know the mistake, fix the mistake, but not admit the mistake" in a private, high-fidelity environment.</p>
-</section>
-<section class="reveal">
-<div class="procedure-box">
-<span class="label">Final Protocol</span>
-<h2>Request for Review.</h2>
-<p>I am not requesting a conversation to "connect." I am requesting a 15-minute <strong>Protocol Review</strong> of how this system integrates into the LinkedIn/M365 architecture.</p>
-<p><strong>Expected Benefit:</strong> Reduction of C-Suite discovery noise by 40%.</p>
-<a href="" target="_blank" class="cta">EXECUTE REVIEW</a>
-</div>
-</section>
-<footer style="padding: 3rem 1.5rem; color: var(--muted); font-size: 0.7rem; border-top: 1px solid var(--border);">
-<div>OBJECTIVE: DISCRETE DATA INTEGRITY</div>
-<div>LOC: ISLE OF PORTLAND // UK</div>
-</footer>
-<script>
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) entry.target.classList.add('visible');
-});
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
